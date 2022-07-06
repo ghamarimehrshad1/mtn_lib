@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for book in books %}
+    <h1>publisher : {{book.Publisher}} </h1>
+    <P>{{book.name}}</P>
+    <img src="{{book.cover.url}}" alt="test" width="300" height="400">
+    <P>{{book.description}}</P>
+    <P>{{book.traslator}}</P>
+    <P>{{book.Publisher}}</P>
+    <P>{{book.category}}</P>
+    <P>{{book.author}}</P>
+    <br>
+    <br>
+    <hr>
+    {% endfor %}
+    
+</body>
+</html>

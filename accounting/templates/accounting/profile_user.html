@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="{{ user.image.url }}" alt="test" width="300" height="400">
+    <br>
+    <h3>name : {{user.name}}</h3>
+    <h3>last name: {{user.last_name}}</h3>
+    <h3>username: {{user.user.username}}</h3>
+    <h3>email: {{user.email}}</h3>
+    <h3>age: {{user.age}}</h3>
+    <h3>national code: {{user.national_code}}</h3>
+    <h3>phone number: {{user.phone_number}}</h3>
+    <br><br>
+    <h3><a href="{% url 'accounting:complete_profile' request.user.id%}"><button> edit or complete </button></a></h3>
+</body>
+</html>

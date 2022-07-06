@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>your bookmark list</h1>
+    <p>username : {{bookmark_list.user}} </p>
+    <br><br>
+    <hr>
+    {% for book in bookmark_list.book.all %}
+    <ul>
+        <li>
+            <img src="{{book.cover.url}}" alt="test" width="300" height="400">
+        </li>
+        <li> name :{{book.name}}</li>
+        <li> des :{{book.description}}</li>
+        <li> author :{% for author in book.author.all %}<a href="{% url 'book:book_1author' author %}">------{{author}}----</a>{% endfor %}</li>
+        <li>category :{% for category in book.category.all %}<a href="{% url 'book:book_1category' category %}">kkkkkkkk{{category}}</a>{% endfor %}</li>
+        <a href="{% url 'book:book_1publisher' book.Publisher %}"><li>publisher :{{book.Publisher}}</li></a>
+        <li><a href="{% url 'book:book-detail' book.id %}"><button><h4>more</h4></button></a></li>
+        <li><a href="{% url 'book:delete_from_bookmark' bookmark_list.id book.id %}"><button><h4>delete from bookmark</h4></button></a></li>
+    </ul>
+    <br><br>
+    <hr>
+    {% endfor %}
+    <!-- <p> create time : {{bookmark_list.create}}</p> -->
+    <!-- <p> modified time : {{bookmark_list.modified}}</p> -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>author list</h1>
+    <br>
+    <form action="{% url 'book:search_book' %}" method="post">
+        {% csrf_token %}
+        <input name="book_name">
+        <button>search author </button>
+
+    </form>
+    <br><br>
+<h2><a href="{% url 'author:add_author' %} "><button>add author</button></a></h2>
+<br><br><hr>
+    {% for author in authors %}
+    <ul>
+        <li>{{author.name}}</li>
+        <li>{{author.description}}</li>
+        <h3><a href="{% url 'author:update_author' author.id %}"><button>edit</button></a></h3>
+        <h3><a href="{% url 'author:delete_author' author.id %}"><button>delete</button></a></h3>
+    </ul>
+    <br><hr>
+    
+    {% endfor%}
+    
+    
+    
+    
+    
+    
+
+</body>
+</html>
